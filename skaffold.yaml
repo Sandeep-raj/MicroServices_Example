@@ -8,51 +8,51 @@ build:
   local:
     push: false
   artifacts:
+    - image: desihunter/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: desihunter/client
       context: client
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: '**/*.js'
             dest: .
-    - image: desihunter/comments
-      context: comments
+    - image: desihunter/tickets
+      context: tickets
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '*.js'
+          - src: 'src/**/*.ts'
             dest: .
-    - image: desihunter/event-bus
-      context: event-bus
+    - image: desihunter/orders
+      context: orders
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '*.js'
+          - src: 'src/**/*.ts'
             dest: .
-    - image: desihunter/moderation
-      context: moderation
+    - image: desihunter/expiration
+      context: expiration
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '*.js'
+          - src: 'src/**/*.ts'
             dest: .
-    - image: desihunter/posts
-      context: posts
+    - image: desihunter/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '*.js'
-            dest: .
-    - image: desihunter/query
-      context: query
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
+          - src: 'src/**/*.ts'
             dest: .
